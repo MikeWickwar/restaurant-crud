@@ -16,7 +16,7 @@ var Dine  = function(){
 router.get('/', function(req, res, next) {
   var stuff = Dine().select().then(function(package){
     var lots_of_stuff = package;
-    res.render('restaurants/index', { title: "Eats", stuff: lots_of_stuff });
+    res.render('restaurants/index', { title: "Eats", stuff: lots_of_stuff, rating: rate });
   });
 });
 
@@ -25,4 +25,12 @@ router.get('/restaurants/new', function(req, res, next) {
     console.log(stater);
 });
 
+// router.post('/restaurants', function(req, res, next) {
+//   var stuff = Dine().select().then(function(package){
+//     var lots_of_stuff = package;
+//
+//   Dine().insert(book).then(function(result){
+//     res.redirect('/books');
+//   });
+// });
 module.exports = router;

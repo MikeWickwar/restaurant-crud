@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+.container2{
+  border: 1px solid black;
+  float: left;
+}
+.form-group{
+  margin: 2vh;
+}
+.subcontent{
+  border: 1px solid black;
+  float: left;
+  padding: 2%;
+  align-content: center;
+  background-color: #e1e1e1;
+}

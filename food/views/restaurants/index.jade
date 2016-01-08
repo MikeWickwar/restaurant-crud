@@ -1,9 +1,18 @@
 extends ../layout
 
 block content
-  header
+  div.header
     h1 gTables
     h3: a(href= '/restaurants/new') New Restaurant
-  //- p Here is the stuff from the database !!! :  #{stuff}
-  each thing in stuff
-    li=thing.title
+  div.content
+    each thing in stuff
+      div.subcontent
+        h1= thing.title
+        img(src= thing.imglink height="80px" width="80px")
+        p= thing.description
+        p= thing.location
+        p
+          - var numstar = thing.rating;
+          - while (numstar--)
+           i.fa.fa-star
+  

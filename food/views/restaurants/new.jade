@@ -2,41 +2,42 @@ extends ../layout
 
 block content 
 
-  div.container
+  div.container 
     h1 New Restaurant
-    form(action='/restaurants' method='post')
-      div.form-group
-        label(for="Name") Name
-        input.form-control(type="text" id="name" name='name' placeholder="Name")
-      div.form-group
-        label(for="title") Location
-        input.form-control(type="text" id="location" name='location' placeholder="City")
-      div.form-group
-        select(id="staters" name="staters")
-          each state in states
-            option(value= state)= state
-      div.form-group
-        select(id="Cuisine" name="Cuisine")
-          option(value= 'American') American
-          option(value= 'Mexican') Mexican
-          option(value= 'Italian') Italian
-          option(value= 'Thia') Thia
-          option(value= 'Vietnamese') Vietnamese
-      div.form-group
-        label(for="rating") Rating
-          input(type="radio" name="rating" value="1" checked)
-          input(type="radio" name="rating" value="2")
-          input(type="radio" name="rating" value="3")
-          input(type="radio" name="rating" value="4")
-          input(type="radio" name="rating" value="5")
-      div.form-group
-        label(for="image") Image
-          input(type="textarea" name="image" placeholder="Image Url...")
-      div.form-group
-          textarea(rows= "4" cols= "30" name="bio" placeholder="Short Bio...")
-      button.btn.btn-primary(type="submit") Submit
-      button.btn.btn-primary(type="submit") Cancel
-        
+    div.container2
+      form(action='/restaurants' method='post')
+        div.form-group
+          label(for="Name") Name
+          input.form-control(type="text" id="name" name='name' placeholder="Name")
+        div.form-group
+          label(for="title") Location
+          input.form-control(type="text" id="location" name='location' placeholder="City")
+        div.form-group
+          select(id="staters" name="staters")
+            each state in states
+              option(value= state)= state
+        div.form-group
+          select(id="Cuisine" name="Cuisine")
+            option(value= 'American') American
+            option(value= 'Mexican') Mexican
+            option(value= 'Italian') Italian
+            option(value= 'Thia') Thia
+            option(value= 'Vietnamese') Vietnamese
+        div.form-group
+          label(for="rating") Rating
+            input(type="radio" name="rating" value="1" checked)
+            input(type="radio" name="rating" value="2")
+            input(type="radio" name="rating" value="3")
+            input(type="radio" name="rating" value="4")
+            input(type="radio" name="rating" value="5")
+        div.form-group
+          label(for="image") Image
+            input(type="textarea" name="image" placeholder="Image Url...")
+        div.form-group
+            textarea(rows= "4" cols= "30" name="bio" placeholder="Short Bio...")
+        button.btn.btn-primary(type="submit") Submit
+        button.btn.btn-primary(type="submit") Cancel
+          
 
                 
   
