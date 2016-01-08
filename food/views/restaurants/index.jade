@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  header
+    h1 gTables
+    h3: a(href= '/restaurants/new') New Restaurant
+  //- p Here is the stuff from the database !!! :  #{stuff}
+  each thing in stuff
+    li=thing.title
