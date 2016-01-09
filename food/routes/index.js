@@ -16,7 +16,7 @@ var Dine  = function(){
 router.get('/', function(req, res, next) {
   var stuff = Dine().select().then(function(package){
     var lots_of_stuff = package;
-    res.render('restaurants/index', { title: "Eats", stuff: lots_of_stuff, rating: rate });
+    res.render('restaurants/index', { title: "Eats", stuff: lots_of_stuff});
   });
 });
 
@@ -25,12 +25,18 @@ router.get('/restaurants/new', function(req, res, next) {
     console.log(stater);
 });
 
-// router.post('/restaurants', function(req, res, next) {
-//   var stuff = Dine().select().then(function(package){
-//     var lots_of_stuff = package;
-//
-//   Dine().insert(book).then(function(result){
-//     res.redirect('/books');
-//   });
-// });
+router.post('/restaurants', function(req, res, next) {
+  var thing = {
+    title: req.body.title,
+    imglink: req.body.image,
+    rating: req.body.rating,
+    description: req.body.description,
+    location: req.body.location,
+  }
+  Dine().insert(thing).then(function(result){
+    res.redirect('/');
+  });
+});
+
+
 module.exports = router;
