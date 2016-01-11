@@ -3,7 +3,7 @@ extends ../layout
 block content 
   div.well.well-lg
     h1: a(href= '/restaurants/#{stuff.title}') #{stuff.title}
-    img(src= stuff.imglink height="80px" width="80px")
+    img(src="../"+stuff.imglink height="80px" width="80px")
     p= stuff.description
     div.locrate
       p= stuff.location 
@@ -12,7 +12,7 @@ block content
         - while (numstar--)
          i.fa.fa-star
       p.state= stuff.staters
-    p= stuff.bio
+      p= stuff.bio
     p 
       a.btn-link(href='/restaurants/#{stuff.title}/edit') Edit
       form(action='/restaurants/#{stuff.title}/delete' method='post')

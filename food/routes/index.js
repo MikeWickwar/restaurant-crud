@@ -52,12 +52,6 @@ router.get('/restaurants/:title/edit', function (req, res, next) {
   });
 })
 
-// router.post('/restaurants/:title', function (req, res) {
-//   Dine().where('id', req.params.id).update(req.body)
-//   .then(function(result){
-//     res.redirect('/');
-//   });
-// });
 router.post('/restaurants/:title', function(req, res, next) {
   console.log('here');
   var thing = {
@@ -65,8 +59,10 @@ router.post('/restaurants/:title', function(req, res, next) {
     imglink: req.body.image,
     rating: req.body.rating,
     description: req.body.description+ " cuisine",
-    location: req.body.location+ ", " + req.body.staters
+    location: req.body.location+ ", " + req.body.staters,
+    bio: req.body.bio
   }
+  console.log(thing.bio);
   Dine().where('title', req.params.title).update(thing)
     .then(function(result){
       res.redirect('/');

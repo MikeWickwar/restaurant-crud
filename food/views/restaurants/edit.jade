@@ -11,20 +11,37 @@ block content
           input.form-control(type="text" id="name" name='name' value= restaurant.title  placeholder="Name")
         div.form-group
           label(for="title") Location
-          input.form-control(type="text" id="location" name='location' value= restaurant.location placeholder="City")
+          input.form-control(type="text" id="location" name='location' value= restaurant.location.split(",")[0] placeholder="City")
         div.form-group
           select(id="staters" name="staters")
             each state in states
-              option(value= state select)= state
-              //- option(value= state)= restaurant.location.split(' ')[1]
+              if(state === restaurant.location.split(" ")[1])
+                option(value= state selected)= state
+              else
+                option(value= state)= state            
         div.form-group
           label(for="description")
-            select(id="description" name="description")
-              option(value= 'American' select=(restaurant.description === american ? selected : undefined)) American
-              option(value= 'Mexican' select=(restaurant.description === mexican ? selected : undefined)) Mexican
-                option(value= 'Italian' select=(restaurant.description === italian ? selected : undefined)) Italian
-              option(value= 'Thia' select=(restaurant.description=== thai ? selected : undefined)) Thia
-              option(value= 'Vietnamese' select=(restaurant.description === vietnamese ? selected : undefined)) Vietnamese
+            select(id="description"  name="description")
+              if(restaurant.description.value === "American cusine")
+                option(value= 'American' selected) American
+              else
+                option(value= 'American') American
+              if(restaurant.description === "Mexican cusine")
+                option(value= 'Mexican' selected) Mexican
+              else
+                option(value= 'Mexican') Mexican
+              if(restaurant.description === "Italian cusine")
+                option(value= 'Italian' selected) Italian
+              else
+                option(value= 'Italian') Italian
+              if(restaurant.description === "Thia cuisine")
+                option(value= 'Thia' selected) Thia
+              else
+                option(value= 'Thia') Thia
+              if(restaurant.description === "vietnamese cusine")
+                option(value= 'Vietnamese' selected) Vietnamese
+              else
+                  option(value= 'Vietnamese') Vietnamese
         div.form-group
           label(for="rating") Rating
             input(type="radio" name="rating" value="1" checked=(restaurant.rating === 1 ? true : undefined))
@@ -37,7 +54,7 @@ block content
             input(type="textarea" value= restaurant.imglink id="image" name="image" placeholder="Image Url...")
         div.form-group
           lable(for="bio")
-            textarea(rows= "4" cols= "30" name="bio" placeholder="Short Bio...")
+            textarea(rows= "4" cols= "30" name="bio" placeholder= restaurant.bio)
         button.btn.btn-primary(type="submit") Submit
         button.btn.btn-primary(type="submit") Cancel
           
