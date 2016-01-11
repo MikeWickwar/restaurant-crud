@@ -2,27 +2,137 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 a {
   color: #00B7FF;
+}
+h3{
+  margin: 0;
+  text-decoration: none;
+}
+h1{
+  margin: 0;
+  text-decoration: none;
+}
+.btn-link{
+  background-color: green;
+  padding-left:3vh;
+  padding-right: 3vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-decoration: none;
+  color: black;
+  display: inline;
+}
+.d{
+  background-color: red;
+}
+.btncont{
+  /*background-color: yellow;*/
+  display: flex;
+  justify-content: end;
+  margin-top:55%;
+}
+.header{
+  background-color: #5ece76;
+}
+.gt{
+  margin-left: 30vw;
+  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  font-weight:lighter;
+  font-size: 15vh;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.nr{
+  text-decoration: none;
+  color: white;
+  margin-left: 80vw;
+  margin-bottom: -7vh;
 }
 .container2{
   border: 1px solid black;
   float: left;
+  width: 70vw;
+  margin-left: 10vw;
+  margin-top: 5vw;
 }
 .form-group{
   margin: 2vh;
 }
-.subcontent{
-  border: 1px solid black;
+.content{
   float: left;
-  padding: 2%;
+  padding-left: 10vw;
+}
+.subcontent{
+  border: 2px solid black;
+  float: left;
+  padding: 1%;
   align-content: center;
   background-color: #e1e1e1;
+  margin: 8vh;
 }
 .locrate{
   /*background-color: red;*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+p{
+  margin:0;
+}
+.titl{
+  text-decoration: none;
+  color: black;
+  font-weight: lighter;
+}
+.show{
+  font-size: 10vh;
+}
+.star{
+  color: gold;
+}
+.splt{
+  display: flex;
+  justify-content: center;
+}
+.contentshow{
+  display: flex;
+  flex-direction: column;
+  font-size: 3vh;
+  margin-top: 5%;
+}
+.bigpic{
+  margin: 5%;
+  margin-left: 0;
+}
+.new{
+  font-size: 10vh;
+  padding-left: 25vw;
+}
+.edit{
+  font-size: 10vh;
+  padding-left: 18vw;
+}
+.ftitl{
+  background-color: white;
+  position: absolute;
+  z-index: 3;
+  margin-left: 11vw;
+  margin-top: 9vh;
+}
+.form-group{
+  padding: .8%;
+}
+.can{
+  background-color: red;
+}
+.btn{
+  margin: 1%;
+  margin-left: .5%;
+  font-size: 2vh;
+
+}
+.sub{
+  background-color: green;
+  margin-left: 55vw;
 }

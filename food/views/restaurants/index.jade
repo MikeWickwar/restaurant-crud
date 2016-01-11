@@ -2,19 +2,20 @@ extends ../layout
 
 block content
   div.header
-    h1 gTables
-    h3: a(href= '/restaurants/new') New Restaurant
+    h1.gt gTables
+    div.nr
+    h3: a.nr(href= '/restaurants/new') New Restaurant
   div.content
     each thing in stuff
       div.subcontent
-        h1: a(href= '/restaurants/#{thing.title}') #{thing.title}
-        img(src= thing.imglink height="80px" width="80px")
-        p= thing.description
+        h1: a.titl(href= '/restaurants/#{thing.title}') #{thing.title}
+        img(src= thing.imglink height="180px" width="180px")
+        p.des= thing.description
         div.locrate
           p= thing.location 
           p
             - var numstar = thing.rating;
             - while (numstar--)
-             i.fa.fa-star
+             i.star.fa.fa-star
           p.state= thing.staters
         

@@ -1,19 +1,23 @@
 extends ../layout 
 
 block content 
-  div.well.well-lg
-    h1: a(href= '/restaurants/#{stuff.title}') #{stuff.title}
-    img(src="../"+stuff.imglink height="80px" width="80px")
-    p= stuff.description
-    div.locrate
-      p= stuff.location 
-      p
-        - var numstar = stuff.rating;
-        - while (numstar--)
-         i.fa.fa-star
-      p.state= stuff.staters
-      p= stuff.bio
-    p 
-      a.btn-link(href='/restaurants/#{stuff.title}/edit') Edit
-      form(action='/restaurants/#{stuff.title}/delete' method='post')
-        input.btn.btn-link(type='submit' value='Delete')
+  div.header
+    h1.gt: a.titl.show(href= '/restaurants/#{stuff.title}') #{stuff.title}
+  div.splt
+    div.bigpic
+      img(src="../"+stuff.imglink height="380px" width="380px")
+    div.contentshow
+      p= stuff.description
+      div.locrate Located in&nbsp #{stuff.location}
+      div.bio
+        p= stuff.bio
+        p
+          - var numstar = stuff.rating;
+          - while (numstar--)
+           i.star.fa.fa-star
+        p.state= stuff.staters
+      div.btncont
+        p.btns 
+          a.btn-link(href='/restaurants/#{stuff.title}/edit') Edit
+          form(action='/restaurants/#{stuff.title}/delete' method='post')
+            input.btn-link.d(type='submit' value='Delete')

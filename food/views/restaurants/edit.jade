@@ -2,59 +2,61 @@ extends ../layout
 
 block content 
 
-  div.container 
-    h1 Editing #{restaurant.title}
-    div.container2
-      form(action='/restaurants/#{restaurant.title}' method='post')
-        div.form-group
-          label(for="Name") Name
-          input.form-control(type="text" id="name" name='name' value= restaurant.title  placeholder="Name")
-        div.form-group
-          label(for="title") Location
-          input.form-control(type="text" id="location" name='location' value= restaurant.location.split(",")[0] placeholder="City")
-        div.form-group
-          select(id="staters" name="staters")
-            each state in states
-              if(state === restaurant.location.split(" ")[1])
-                option(value= state selected)= state
-              else
-                option(value= state)= state            
-        div.form-group
-          label(for="description")
-            select(id="description"  name="description")
-              if(restaurant.description.value === "American cusine")
-                option(value= 'American' selected) American
-              else
-                option(value= 'American') American
-              if(restaurant.description === "Mexican cusine")
-                option(value= 'Mexican' selected) Mexican
-              else
-                option(value= 'Mexican') Mexican
-              if(restaurant.description === "Italian cusine")
-                option(value= 'Italian' selected) Italian
-              else
-                option(value= 'Italian') Italian
-              if(restaurant.description === "Thia cuisine")
-                option(value= 'Thia' selected) Thia
-              else
-                option(value= 'Thia') Thia
-              if(restaurant.description === "vietnamese cusine")
-                option(value= 'Vietnamese' selected) Vietnamese
-              else
-                  option(value= 'Vietnamese') Vietnamese
-        div.form-group
-          label(for="rating") Rating
-            input(type="radio" name="rating" value="1" checked=(restaurant.rating === 1 ? true : undefined))
-            input(type="radio" name="rating" value="2" checked=(restaurant.rating === 2 ? true : undefined))
-            input(type="radio" name="rating" value="3" checked=(restaurant.rating === 3 ? true : undefined))
-            input(type="radio" name="rating" value="4" checked=(restaurant.rating === 4 ? true : undefined))
-            input(type="radio" name="rating" value="5" checked=(restaurant.rating === 5 ? true : undefined))
-        div.form-group
-          label(for="image") Image
-            input(type="textarea" value= restaurant.imglink id="image" name="image" placeholder="Image Url...")
-        div.form-group
-          lable(for="bio")
-            textarea(rows= "4" cols= "30" name="bio" placeholder= restaurant.bio)
-        button.btn.btn-primary(type="submit") Submit
-        button.btn.btn-primary(type="submit") Cancel
-          
+  div.header
+    h1.titl.edit Editing #{restaurant.title}
+  div.ftitl Edit Restaurant
+  div.container2
+    form(action='/restaurants/#{restaurant.title}' method='post')
+      div.form-group
+        label(for="Name") Name
+        input.form-control(type="text" id="name" name='name' value= restaurant.title  placeholder="Name")
+      div.form-group
+        label(for="title") Location
+        input.form-control(type="text" id="location" name='location' value= restaurant.location.split(",")[0] placeholder="City")
+      div.form-group
+        select(id="staters" name="staters")
+          each state in states
+            if(state === restaurant.location.split(" ")[1])
+              option(value= state selected)= state
+            else
+              option(value= state)= state            
+      div.form-group
+        label(for="description")
+          select(id="description"  name="description")
+            if(restaurant.description.value === "American cusine")
+              option(value= 'American' selected) American
+            else
+              option(value= 'American') American
+            if(restaurant.description === "Mexican cusine")
+              option(value= 'Mexican' selected) Mexican
+            else
+              option(value= 'Mexican') Mexican
+            if(restaurant.description === "Italian cusine")
+              option(value= 'Italian' selected) Italian
+            else
+              option(value= 'Italian') Italian
+            if(restaurant.description === "Thia cuisine")
+              option(value= 'Thia' selected) Thia
+            else
+              option(value= 'Thia') Thia
+            if(restaurant.description === "vietnamese cusine")
+              option(value= 'Vietnamese' selected) Vietnamese
+            else
+                option(value= 'Vietnamese') Vietnamese
+      div.form-group
+        label(for="rating") Rating
+          input(type="radio" name="rating" value="1" checked=(restaurant.rating === 1 ? true : undefined))
+          input(type="radio" name="rating" value="2" checked=(restaurant.rating === 2 ? true : undefined))
+          input(type="radio" name="rating" value="3" checked=(restaurant.rating === 3 ? true : undefined))
+          input(type="radio" name="rating" value="4" checked=(restaurant.rating === 4 ? true : undefined))
+          input(type="radio" name="rating" value="5" checked=(restaurant.rating === 5 ? true : undefined))
+      div.form-group
+        label(for="image") Image
+          input(type="textarea" value= restaurant.imglink id="image" name="image" placeholder="Image Url...")
+      div.form-group
+        lable(for="bio")
+          textarea(rows= "4" cols= "30" name="bio" placeholder= restaurant.bio)
+      div.btns
+        button.btn.sub(type="submit") Submit
+        button.btn.can(type="submit") Cancel
+        

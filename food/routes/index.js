@@ -15,7 +15,7 @@ var Dine  = function(){
 router.get('/', function(req, res, next) {
   var stuff = Dine().select().then(function(package){
     var lots_of_stuff = package;
-    res.render('restaurants/index', { title: "Eats", stuff: lots_of_stuff});
+    res.render('restaurants/index', {title: "Eats", stuff: lots_of_stuff});
   });
 });
 
