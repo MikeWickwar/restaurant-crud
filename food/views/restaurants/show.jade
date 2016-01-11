@@ -18,6 +18,6 @@ block content
         p.state= stuff.staters
       div.btncont
         p.btns 
-          a.btn-link(href='/restaurants/#{stuff.title}/edit') Edit
+          a.btnE(href='/restaurants/#{stuff.title}/edit') Edit
           form(action='/restaurants/#{stuff.title}/delete' method='post')
             input.btn-link.d(type='submit' value='Delete')
