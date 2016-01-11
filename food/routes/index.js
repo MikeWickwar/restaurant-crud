@@ -12,7 +12,6 @@ var Dine  = function(){
   return knex('dinning');
 }
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   var stuff = Dine().select().then(function(package){
     var lots_of_stuff = package;
@@ -27,12 +26,11 @@ router.get('/restaurants/new', function(req, res, next) {
 
 router.post('/restaurants', function(req, res, next) {
   var thing = {
-    id: req.body.id,
-    title: req.body.title,
+    title: req.body.name,
     imglink: req.body.image,
     rating: req.body.rating,
-    description: req.body.description,
-    location: req.body.location,
+    description: req.body.description+ " cuisine",
+    location: req.body.location+ ", " + req.body.staters
   }
   Dine().insert(thing).then(function(result){
     res.redirect('/');

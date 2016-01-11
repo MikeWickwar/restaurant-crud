@@ -3,10 +3,10 @@ extends ../layout
 block content 
   if restaurant
     div.well.well-lg
-      h1= restaurant.title 
-      h3= restaurant.author
+      h1: #{restaurant.title}
+      h3: #{restaurant.cuisine}
       p Rating: #{restaurant.rating}
-      p= restaurant.description 
+      p: #{restaurant.bio}
       p 
         a.btn-link(href='/restaurant/'+ restaurant.id + '/edit') Edit
         form(action='/restaurant/#{restaurant.id}/delete' method='post')

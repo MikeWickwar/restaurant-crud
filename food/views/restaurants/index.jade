@@ -11,9 +11,11 @@ block content
         h1: a(href= '/restaurants/#{thing.title}') #{thing.title}
         img(src= thing.imglink height="80px" width="80px")
         p= thing.description
-        p= thing.location
-        p
-          - var numstar = thing.rating;
-          - while (numstar--)
-           i.fa.fa-star
-  
+        div.locrate
+          p= thing.location 
+          p
+            - var numstar = thing.rating;
+            - while (numstar--)
+             i.fa.fa-star
+          p.state= thing.staters
+    

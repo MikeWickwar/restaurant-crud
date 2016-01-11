@@ -20,3 +20,9 @@ a {
   align-content: center;
   background-color: #e1e1e1;
 }
+.locrate{
+  /*background-color: red;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
