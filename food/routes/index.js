@@ -38,10 +38,49 @@ router.post('/restaurants', function(req, res, next) {
 });
 
 router.get('/restaurants/:title', function (req, res, next) {
-  Dine().where('title', req.params.title).first().then(function(result){
-    res.render('restaurants/show', { restaurant: result});
+  var stuff = Dine().where('title', req.params.title).first().then(function(package){
+    var lots_of_stuff = package;
+      res.render('restaurants/show', {stuff: lots_of_stuff});
   });
 })
+router.get('/restaurants/:title/edit', function (req, res, next) {
+  var restaurant = Dine().where('title', req.params.title).first().then(function(package){
+    var lots_of_stuff = package;
+      res.render('restaurants/edit', {restaurant: lots_of_stuff, states: stater});
+      console.log(lots_of_stuff.description);
+      // console.log(lots_of_stuff.location.split(' ')[1]);
+  });
+})
+
+// router.post('/restaurants/:title', function (req, res) {
+//   Dine().where('id', req.params.id).update(req.body)
+//   .then(function(result){
+//     res.redirect('/');
+//   });
+// });
+router.post('/restaurants/:title', function(req, res, next) {
+  console.log('here');
+  var thing = {
+    title: req.body.name,
+    imglink: req.body.image,
+    rating: req.body.rating,
+    description: req.body.description+ " cuisine",
+    location: req.body.location+ ", " + req.body.staters
+  }
+  Dine().where('title', req.params.title).update(thing)
+    .then(function(result){
+      res.redirect('/');
+  });
+});
+
+router.post('/restaurants/:title/delete', function (req, res) {
+  Dine().where('title', req.params.title).del()
+  .then(function (result) {
+    res.redirect('/');
+  })
+})
+////ATTENTION FUTURE ME!! .. start with the submit on the edit button working
+///as well as auto population of the cuisine drop down FUUUUUUUCK.
 
 
 module.exports = router;

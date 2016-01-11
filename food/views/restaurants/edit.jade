@@ -1,0 +1,43 @@
+extends ../layout 
+
+block content 
+
+  div.container 
+    h1 Editing #{restaurant.title}
+    div.container2
+      form(action='/restaurants/#{restaurant.title}' method='post')
+        div.form-group
+          label(for="Name") Name
+          input.form-control(type="text" id="name" name='name' value= restaurant.title  placeholder="Name")
+        div.form-group
+          label(for="title") Location
+          input.form-control(type="text" id="location" name='location' value= restaurant.location placeholder="City")
+        div.form-group
+          select(id="staters" name="staters")
+            each state in states
+              option(value= state select)= state
+              //- option(value= state)= restaurant.location.split(' ')[1]
+        div.form-group
+          label(for="description")
+            select(id="description" name="description")
+              option(value= 'American' select=(restaurant.description === american ? selected : undefined)) American
+              option(value= 'Mexican' select=(restaurant.description === mexican ? selected : undefined)) Mexican
+                option(value= 'Italian' select=(restaurant.description === italian ? selected : undefined)) Italian
+              option(value= 'Thia' select=(restaurant.description=== thai ? selected : undefined)) Thia
+              option(value= 'Vietnamese' select=(restaurant.description === vietnamese ? selected : undefined)) Vietnamese
+        div.form-group
+          label(for="rating") Rating
+            input(type="radio" name="rating" value="1" checked=(restaurant.rating === 1 ? true : undefined))
+            input(type="radio" name="rating" value="2" checked=(restaurant.rating === 2 ? true : undefined))
+            input(type="radio" name="rating" value="3" checked=(restaurant.rating === 3 ? true : undefined))
+            input(type="radio" name="rating" value="4" checked=(restaurant.rating === 4 ? true : undefined))
+            input(type="radio" name="rating" value="5" checked=(restaurant.rating === 5 ? true : undefined))
+        div.form-group
+          label(for="image") Image
+            input(type="textarea" value= restaurant.imglink id="image" name="image" placeholder="Image Url...")
+        div.form-group
+          lable(for="bio")
+            textarea(rows= "4" cols= "30" name="bio" placeholder="Short Bio...")
+        button.btn.btn-primary(type="submit") Submit
+        button.btn.btn-primary(type="submit") Cancel
+          
