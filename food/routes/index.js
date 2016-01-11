@@ -75,8 +75,6 @@ router.post('/restaurants/:title/delete', function (req, res) {
     res.redirect('/');
   })
 })
-////ATTENTION FUTURE ME!! .. start with the submit on the edit button working
-///as well as auto population of the cuisine drop down FUUUUUUUCK.
 
 
 module.exports = router;
