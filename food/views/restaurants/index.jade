@@ -7,7 +7,7 @@ block content
     h3: a.nr(href= '/restaurants/new') New Restaurant
   div.content
     each thing in stuff
-      div.subcontent
+      div.subcontent.subBox
         h1: a.titl(href= '/restaurants/#{thing.title}') #{thing.title}
         img(src= thing.imglink height="180px" width="180px")
         p.des= thing.description

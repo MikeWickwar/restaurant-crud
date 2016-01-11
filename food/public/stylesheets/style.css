@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: 'Quicksand', sans-serif;
 }
 a {
   color: #00B7FF;
@@ -12,6 +13,8 @@ h3{
 h1{
   margin: 0;
   text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+
 }
 .btn-link{
   background-color: green;
@@ -38,7 +41,7 @@ h1{
 }
 .gt{
   margin-left: 30vw;
-  font-family: Geneva, Tahoma, Verdana, sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight:lighter;
   font-size: 15vh;
   margin-top: 0;
@@ -62,7 +65,7 @@ h1{
 }
 .content{
   float: left;
-  padding-left: 10vw;
+  padding-left: 7vw;
 }
 .subcontent{
   border: 2px solid black;
@@ -143,4 +146,8 @@ p{
   padding-left: 50%;
   padding-right:50%;
   font-size: 2vh;
+}
+.subBox{
+  width: 15vw;
+  padding-left: 3vw;
 }
