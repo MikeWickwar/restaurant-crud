@@ -7,7 +7,8 @@ block content
   div.content
     each thing in stuff
       div.subcontent
-        h1= thing.title
+        
+        h1: a(href= '/restaurants/#{thing.title}') #{thing.title}
         img(src= thing.imglink height="80px" width="80px")
         p= thing.description
         p= thing.location

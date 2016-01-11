@@ -27,6 +27,7 @@ router.get('/restaurants/new', function(req, res, next) {
 
 router.post('/restaurants', function(req, res, next) {
   var thing = {
+    id: req.body.id,
     title: req.body.title,
     imglink: req.body.image,
     rating: req.body.rating,
@@ -37,6 +38,12 @@ router.post('/restaurants', function(req, res, next) {
     res.redirect('/');
   });
 });
+
+router.get('/restaurants/:title', function (req, res, next) {
+  Dine().where('title', req.params.title).first().then(function(result){
+    res.render('restaurants/show', { restaurant: result});
+  });
+})
 
 
 module.exports = router;
