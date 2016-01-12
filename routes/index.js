@@ -5,7 +5,7 @@ var i =0;
 
 var knex = require('knex')({
    client: 'pg',
-   connection: 'postgres://localhost/restaurant'
+   connection: process.env.DATABASE_URL || 'postgres://localhost/library'
 });
 
 var Dine  = function(){
