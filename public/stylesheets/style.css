@@ -37,14 +37,15 @@ h1{
 }
 .header{
   background-color: #5ece76;
+  padding: 1vh;
 }
 .gt{
   margin-left: 30vw;
   font-family: 'Quicksand', sans-serif;
   font-weight:lighter;
-  font-size: 15vh;
-  margin-top: 0;
-  margin-bottom: 0;
+  font-size: 10vh;
+  margin-top: -3vh;
+  margin-bottom: 3vh;
 }
 .nr{
   text-decoration: none;
