@@ -2,7 +2,7 @@ extends ../layout
 
 block content 
   div.header
-    h1.gt: a.titl.show(href= '/restaurants/#{stuff.title}') #{stuff.title}
+    h1.gt: a.titl.show(href= '/restaurants/#{stuff.id}') #{stuff.title}
     div.adlink: a.ad(href= '/restaurants/admin') Admin Page
   div.splt
     div.bigpic
@@ -17,8 +17,10 @@ block content
           - while (numstar--)
            i.star.fa.fa-star
         p.state= stuff.staters
+      div.reviews
+        
       div.btncont
         p.btns 
-          a.btnE(href='/restaurants/#{stuff.title}/edit') Edit
-          form(action='/restaurants/#{stuff.title}/delete' method='post')
+          a.btnE(href='/restaurants/#{stuff.id}/edit') Edit
+          form(action='/restaurants/#{stuff.id}/delete' method='post')
             input.btn-link.d(type='submit' value='Delete')

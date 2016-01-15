@@ -6,7 +6,7 @@ block content
     h1.titl.edit Editing #{restaurant.title}
   div.ftitl Edit Restaurant
   div.container2
-    form(action='/restaurants/#{restaurant.title}' method='post')
+    form(action='/restaurants/#{restaurant.id}' method='post')
       div.form-group
         label(for="Name") Name
         input.form-control(type="text" id="name" name='name' value= restaurant.title  placeholder="Name")

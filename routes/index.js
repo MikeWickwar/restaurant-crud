@@ -55,14 +55,15 @@ router.post('/restaurants', function(req, res, next) {
   });
 });
 
-router.get('/restaurants/:title', function (req, res, next) {
-  var stuff = Dine().where('title', req.params.title).first().then(function(package){
+router.get('/restaurants/:id', function (req, res, next) {
+  var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_')
+  var stuff = Dine().where('id', req.params.id).first().then(function(package){
     var lots_of_stuff = package;
       res.render('restaurants/show', {stuff: lots_of_stuff});
   });
 })
-router.get('/restaurants/:title/edit', function (req, res, next) {
-  var restaurant = Dine().where('title', req.params.title).first().then(function(package){
+router.get('/restaurants/:id/edit', function (req, res, next) {
+  var restaurant = Dine().where('id', req.params.id).first().then(function(package){
     var lots_of_stuff = package;
       res.render('restaurants/edit', {restaurant: lots_of_stuff, states: stater});
       console.log(lots_of_stuff.description);
@@ -70,7 +71,7 @@ router.get('/restaurants/:title/edit', function (req, res, next) {
   });
 })
 
-router.post('/restaurants/:title', function(req, res, next) {
+router.post('/restaurants/:id', function(req, res, next) {
   console.log('here');
   var thing = {
     title: req.body.name,
@@ -81,14 +82,14 @@ router.post('/restaurants/:title', function(req, res, next) {
     bio: req.body.bio
   }
   console.log(thing.bio);
-  Dine().where('title', req.params.title).update(thing)
+  Dine().where('id', req.params.id).update(thing)
     .then(function(result){
       res.redirect('/');
   });
 });
 
-router.post('/restaurants/:title/delete', function (req, res) {
-  Dine().where('title', req.params.title).del()
+router.post('/restaurants/:id/delete', function (req, res) {
+  Dine().where('id', req.params.id).del()
   .then(function (result) {
     res.redirect('/');
   })
