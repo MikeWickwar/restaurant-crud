@@ -57,10 +57,11 @@ router.post('/restaurants', function(req, res, next) {
 });
 
 router.get('/restaurants/:id', function (req, res, next) {
-  var restaurant = Dine().select().fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
+  var restaurant = Dine().select().where('dinning.id', '=', req.params.id).fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
     .then(function(package){
       var lots_of_stuff = package;
-      console.log(lots_of_stuff);
+      var restaurantsArr = sort.rSorter(package);
+      console.log(restaurantsArr);
       res.render('restaurants/show', {restaurant: lots_of_stuff});
   });
 })
