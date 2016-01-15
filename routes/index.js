@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var stater = require('../public/javascripts/states.js')
+var sort = require('../public/javascripts/sort.js')
 var i =0;
 
 var knex = require('knex')({
@@ -22,6 +23,23 @@ router.get('/', function(req, res, next) {
 router.get('/restaurants/new', function(req, res, next) {
     res.render('restaurants/new', {states: stater});
     console.log(stater);
+});
+
+
+// runQuery('select * from rests', functions(result){
+//   runQuery('select * from employees', function(resultE){
+//       render{ locaal with both result.rows and resultE.rows}
+//   }
+// } good way to write with two different objects or you can loop through one object via the jade file
+
+router.get('/restaurants/admin', function(req, res, next) {
+  var stuff = Dine().select().fullOuterJoin('employees', 'dinning.title', 'employees.restaurant').then(function(package){
+    console.log(package);
+  var lots_of_stuff = package;
+  var restaurantsArr = sort.rSorter(package);
+  var empArr = sort.eSorter(restaurantsArr, package)
+    res.render('restaurants/admin', {title: "Admin Page", stuff: lots_of_stuff });
+    });
 });
 
 router.post('/restaurants', function(req, res, next) {

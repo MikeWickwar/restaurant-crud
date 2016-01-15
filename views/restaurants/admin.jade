@@ -1,0 +1,28 @@
+extends ../layout 
+
+block content 
+  div.header
+    div.adlink: a.ad(href= '/restaurants/admin') #{title}
+  div.body
+    each thing in stuff
+      div.rList #{thing.title}
+        each moreThing in stuff
+          if thing.id === moreThing.rest_id
+            li #{moreThing.firstName} #{moreThing.lastName}
+        
+    //- each thing in stuff
+      //- div.rList 
+      //-   h1 #{thing.title}
+          //- - var titl = {#{thing.title}}
+          //- - var emp = {#{thing.firstName}}
+          //- - var fal = false
+        //- each line in thing
+          //- if titl = titl
+          //- - var emp += #{thing.firstName}
+              //- p
+                  //- emp
+          //- elseif fal
+          //-   h1 #{thing.title}
+              //- p
+                //- emp
+                

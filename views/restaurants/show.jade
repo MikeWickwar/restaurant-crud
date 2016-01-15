@@ -3,6 +3,7 @@ extends ../layout
 block content 
   div.header
     h1.gt: a.titl.show(href= '/restaurants/#{stuff.title}') #{stuff.title}
+    div.adlink: a.ad(href= '/restaurants/admin') Admin Page
   div.splt
     div.bigpic
       img(src="../"+stuff.imglink height="380px" width="380px")
