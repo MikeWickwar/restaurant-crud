@@ -2,25 +2,25 @@ extends ../layout
 
 block content 
   div.header
-    h1.gt: a.titl.show(href= '/restaurants/#{stuff.id}') #{stuff.title}
+    h1.gt: a.titl.show(href= '/restaurants/#{restaurant.id}') #{restaurant.title}
     div.adlink: a.ad(href= '/restaurants/admin') Admin Page
   div.splt
     div.bigpic
-      img(src="../"+stuff.imglink height="380px" width="380px")
+      img(src="../"+restaurant.imglink height="380px" width="380px")
     div.contentshow
-      p= stuff.description
-      div.locrate Located in&nbsp #{stuff.location}
+      p= restaurant.description
+      div.locrate Located in&nbsp #{restaurant.location}
       div.bio
-        p= stuff.bio
+        p= restaurant.bio
         p
-          - var numstar = stuff.rating;
+          - var numstar = restaurant.rating;
           - while (numstar--)
            i.star.fa.fa-star
-        p.state= stuff.staters
+        p.state= restaurant.staters
       div.reviews
         
       div.btncont
         p.btns 
-          a.btnE(href='/restaurants/#{stuff.id}/edit') Edit
-          form(action='/restaurants/#{stuff.id}/delete' method='post')
+          a.btnE(href='/restaurants/#{restaurant.id}/edit') Edit
+          form(action='/restaurants/#{restaurant.id}/delete' method='post')
             input.btn-link.d(type='submit' value='Delete')

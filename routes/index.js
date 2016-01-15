@@ -56,17 +56,17 @@ router.post('/restaurants', function(req, res, next) {
 });
 
 router.get('/restaurants/:id', function (req, res, next) {
-  var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_')
-  var stuff = Dine().where('id', req.params.id).first().then(function(package){
-    var lots_of_stuff = package;
-      res.render('restaurants/show', {stuff: lots_of_stuff});
+  var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_id')
+    .then(function(package){
+      var lots_of_stuff = package;
+      console.log(lots_of_stuff.description);
+      res.render('restaurants/show', {restaurant: lots_of_stuff});
   });
 })
 router.get('/restaurants/:id/edit', function (req, res, next) {
   var restaurant = Dine().where('id', req.params.id).first().then(function(package){
     var lots_of_stuff = package;
       res.render('restaurants/edit', {restaurant: lots_of_stuff, states: stater});
-      console.log(lots_of_stuff.description);
       // console.log(lots_of_stuff.location.split(' ')[1]);
   });
 })
