@@ -15,6 +15,7 @@ var Dine  = function(){
 
 router.get('/', function(req, res, next) {
   var stuff = Dine().select().then(function(package){
+  // var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_id').then(function(package){
     var lots_of_stuff = package;
     res.render('restaurants/index', {title: "Eats", stuff: lots_of_stuff});
   });
@@ -56,15 +57,16 @@ router.post('/restaurants', function(req, res, next) {
 });
 
 router.get('/restaurants/:id', function (req, res, next) {
-  var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_id')
+  var restaurant = Dine().select().fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
     .then(function(package){
       var lots_of_stuff = package;
-      console.log(lots_of_stuff.description);
+      console.log(lots_of_stuff);
       res.render('restaurants/show', {restaurant: lots_of_stuff});
   });
 })
 router.get('/restaurants/:id/edit', function (req, res, next) {
-  var restaurant = Dine().where('id', req.params.id).first().then(function(package){
+  // var restaurant = Dine().where('id', req.params.id).first().then(function(package){
+  var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_id').then(function(package){
     var lots_of_stuff = package;
       res.render('restaurants/edit', {restaurant: lots_of_stuff, states: stater});
       // console.log(lots_of_stuff.location.split(' ')[1]);
