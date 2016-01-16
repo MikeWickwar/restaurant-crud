@@ -147,7 +147,25 @@ p{
   padding-right:50%;
   font-size: 2vh;
 }
+.btnR{
+  background-color: blue;
+  padding: 1%;
+  padding-left: 5%;
+  padding-right:5%;
+  font-size: 2vh;
+}
+.btnEmp{
+  background-color: blue;
+  padding: 1%;
+  padding-left: 5%;
+  padding-right:5%;
+  font-size: 2vh;
+}
 .subBox{
   width: 15vw;
   padding-left: 3vw;
+}
+.btns{
+  display: flex;
+  justify-content:center;
 }

@@ -1,0 +1,30 @@
+extends ../../layout 
+
+block content
+  for rest in restaurant 
+    div.header
+      h1.gt: a.titl.show(href= '/restaurants/#{restaurant.id}') #{rest.title}
+      div.adlink: a.ad(href= '/restaurants/admin') Admin Page
+    div.splt
+      div.bigpic
+        img(src="../../"+rest.imglink height="380px" width="380px")
+      div.contentshow
+        p= restaurant.description
+        div.locrate Located in&nbsp #{rest.location}
+        div.bio
+          p= rest.bio
+          p
+            - var numstar = rest.rating;
+            - while (numstar--)
+             i.star.fa.fa-star
+          p.state= rest.staters
+        for cat in restaurant
+          if rest.restaurant_id === restaurant.id
+            div.reviews
+              p.rev #{cat.review}
+            div.btncont
+              p.btns 
+                a.btnE(href='/restaurants/#{rest.id}/edit') Edit
+                form(action='/restaurants/#{rest.id}/delete' method='post')
+                  input.btn-link.d(type='submit' value='Delete')
+                a.btnR(href='/restaurants/#{rest.id}/review/new') Review

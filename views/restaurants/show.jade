@@ -8,6 +8,7 @@ block content
     div.splt
       div.bigpic
         img(src="../"+rest.imglink height="380px" width="380px")
+        a.btnEmp(href='/restaurants/#{rest.id}/employee/new') Add employee
       div.contentshow
         p= restaurant.description
         div.locrate Located in&nbsp #{rest.location}
@@ -19,9 +20,11 @@ block content
              i.star.fa.fa-star
           p.state= rest.staters
         div.reviews
-          p.rev #{rest.review}
+          for rest in restaurant
+            p.rev #{rest.review}
         div.btncont
           p.btns 
             a.btnE(href='/restaurants/#{rest.id}/edit') Edit
             form(action='/restaurants/#{rest.id}/delete' method='post')
               input.btn-link.d(type='submit' value='Delete')
+            a.btnR(href='/restaurants/#{rest.id}/review/new') Review

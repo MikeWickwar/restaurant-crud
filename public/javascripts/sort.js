@@ -1,5 +1,7 @@
-var restResultPack = []
+var restResultPack = [];
+var indRestRevArray = [];
 module.exports = {
+
  rSorter : function (package){
   console.log('here sortin');
     package.forEach(function(rest){
@@ -12,6 +14,25 @@ module.exports = {
     })
     console.log(restResultPack);
 },
+
+  reviewArr : function (restId, totalRevArr) {
+    console.log(restId);
+    console.log('***********************');
+    console.log(totalRevArr[0]);
+      for(dinner in totalRevArr){
+        if (restId === dinner.id) {
+          indRestRevArray.push('bawls')
+        }
+      }
+      console.log(indRestRevArray);
+    },
+      // totalRevArr.forEach(function(){
+        // if (restId === totalRevArr.id){
+        //   indRestRevArray.push('bawls')
+        // }
+
+
+
   eSorter : function (restaurantsArr, package){
     console.log("sortin emp");
   }

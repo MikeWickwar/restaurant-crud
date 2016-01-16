@@ -27,6 +27,7 @@ router.get('/restaurants/new', function(req, res, next) {
 });
 
 
+
 // runQuery('select * from rests', functions(result){
 //   runQuery('select * from employees', function(resultE){
 //       render{ locaal with both result.rows and resultE.rows}
@@ -89,6 +90,43 @@ router.post('/restaurants/:id', function(req, res, next) {
     .then(function(result){
       res.redirect('/');
   });
+});
+
+router.post('/restaurants/:id/review', function(req, res, next) {
+  console.log('here');
+  var thing = {
+    name: req.body.name,
+    date: req.body.date,
+    rating: req.body.rating,
+    review: req.body.review,
+    restaurant_id: req.param.id
+  }
+  knex('reviews').where('id', req.params.id).insert(thing)
+    .then(function(result){
+      res.redirect('/restaurants/'+req.params.id+"/review");
+  });
+});
+
+router.get('/restaurants/:id/review', function(req, res, next) {
+    var idy = req.params.id
+    console.log(idy);
+    //this will query the id needed to pull. add another var that will select the whole list then pass those bitches into a function to compare........shiiit.
+    var restaurant = Dine().select().where('dinning.id', '=', req.params.id).fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
+    var resList = Dine().select().fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
+      .then(function(package){
+        var stuff = package
+        var revArr = sort.reviewArr(idy, resList)
+        res.render('restaurants/show/review', {restaurant: stuff });
+      });
+  });
+
+
+router.get('/restaurants/:id/review/new', function(req, res, next) {
+  res.render('restaurants/new/review', {idNum: req.params.id});
+});
+
+router.get('/restaurants/:id/employee/new', function(req, res, next) {
+  res.render('restaurants/new/employee', {idNum: req.params.id});
 });
 
 router.post('/restaurants/:id/delete', function (req, res) {
