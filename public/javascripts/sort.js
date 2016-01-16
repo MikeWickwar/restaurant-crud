@@ -1,19 +1,39 @@
-var restResultPack = [];
 var indRestRevArray = [];
+
+// function getStars(rating) {
+//   var stars = [];
+//   while (rating--){
+//     stars.push('i.star.fa.fa-star')
+//     return stars
+//   }
+// }
 module.exports = {
 
+  //FUTURE ME START HERE WITH ADMIN PAGE GET REst rating passed in from r sorter to not be undefined.
+  //nmutas video was dope watch it again.
+
  rSorter : function (package){
-  console.log('here sortin');
+   var restResultPack = [];
+   var titlArr = [];
+   var ratingArr = [];
+   console.log('here sortin');
     package.forEach(function(rest){
-      console.log(rest.title +"**************");
-      for (var i = 0; i < package.length; i++) {
-          if( i === rest.id){
-            restResultPack.push(rest.title)
-          }
-      }
+      console.log(rest.title +"************** " +rest.rating);
+        restResultPack.push(rest.title, rest.rating);
     })
-    console.log(restResultPack);
+    console.log("/,,/");
+    return restResultPack
 },
+
+  idSort : function (package) {
+    var idArr = [];
+    package.forEach(function(rest){
+      idArr.push(rest.id)
+    })
+    console.log(idArr);
+    return idArr
+  },
+
 
   reviewArr : function (restId, totalRevArr) {
     console.log(restId);
@@ -30,8 +50,6 @@ module.exports = {
         // if (restId === totalRevArr.id){
         //   indRestRevArray.push('bawls')
         // }
-
-
 
   eSorter : function (restaurantsArr, package){
     console.log("sortin emp");

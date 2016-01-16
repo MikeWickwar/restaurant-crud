@@ -35,12 +35,13 @@ router.get('/restaurants/new', function(req, res, next) {
 // } good way to write with two different objects or you can loop through one object via the jade file
 
 router.get('/restaurants/admin', function(req, res, next) {
-  var stuff = Dine().select().fullOuterJoin('employees', 'dinning.title', 'employees.restaurant').then(function(package){
+  var restaurants = Dine().select().then(function(package){
     console.log(package);
   var lots_of_stuff = package;
   var restaurantsArr = sort.rSorter(package);
-  var empArr = sort.eSorter(restaurantsArr, package)
-    res.render('restaurants/admin', {title: "Admin Page", stuff: lots_of_stuff });
+  var idArr = sort.idSort(package);
+  console.log(restaurantsArr);
+    res.render('restaurants/admin', {title: "Admin Page", restaurants: restaurantsArr, id: idArr});
     });
 });
 

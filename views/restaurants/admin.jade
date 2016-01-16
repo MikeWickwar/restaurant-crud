@@ -4,25 +4,18 @@ block content
   div.header
     div.adlink: a.ad(href= '/restaurants/admin') #{title}
   div.body
-    each thing in stuff
-      div.rList #{thing.title}
-        each moreThing in stuff
-          if thing.id === moreThing.rest_id
-            li #{moreThing.firstName} #{moreThing.lastName}
-        
-    //- each thing in stuff
-      //- div.rList 
-      //-   h1 #{thing.title}
-          //- - var titl = {#{thing.title}}
-          //- - var emp = {#{thing.firstName}}
-          //- - var fal = false
-        //- each line in thing
-          //- if titl = titl
-          //- - var emp += #{thing.firstName}
-              //- p
-                  //- emp
-          //- elseif fal
-          //-   h1 #{thing.title}
-              //- p
-                //- emp
-                
+    for rest, index in restaurants
+      div.indRest
+        if isNaN(rest)
+          h1= rest
+        else
+          - var numstar = rest;
+          - while (numstar--)
+            i.star.fa.fa-star
+    div.buttons
+      for i in id
+        a.btnEs(href='/restaurants/#{i}/edit') Edit
+        form(action='/restaurants/#{i}/delete' method='post')
+          input.btn-link.d(type='submit' value='Delete')
+                  
+          
