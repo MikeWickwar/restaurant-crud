@@ -62,7 +62,6 @@ router.get('/restaurants/:id', function (req, res, next) {
   var id = req.params.id
   var restaurant = Dine().select().where('dinning.id', '=', req.params.id).fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
     .then(function(singleRpackage){
-      // var allRests = Dine().select()
       var restaurantS = singleRpackage
       var indiRest = sort.indiRestSorter(singleRpackage, id);
       var reviews = sort.revSorter(singleRpackage, id);
