@@ -59,14 +59,18 @@ router.post('/restaurants', function(req, res, next) {
 });
 
 router.get('/restaurants/:id', function (req, res, next) {
+  var id = req.params.id
   var restaurant = Dine().select().where('dinning.id', '=', req.params.id).fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
-    .then(function(package){
-      var lots_of_stuff = package;
-      var restaurantsArr = sort.rSorter(package);
-      console.log(restaurantsArr);
-      res.render('restaurants/show', {restaurant: lots_of_stuff});
+    .then(function(singleRpackage){
+      // var allRests = Dine().select()
+      var restaurantS = singleRpackage
+      var indiRest = sort.indiRestSorter(singleRpackage, id);
+      var reviews = sort.revSorter(singleRpackage, id);
+      console.log(singleRpackage+"popopopopoopop");
+      res.render('restaurants/show', {restaurant: indiRest, reviewer : reviews, restaurantS: restaurantS});
   });
 })
+
 router.get('/restaurants/:id/edit', function (req, res, next) {
   var id = req.params.id
   // var restaurant = Dine().where('id', req.params.id).first().then(function(package){
@@ -97,17 +101,19 @@ router.post('/restaurants/:id', function(req, res, next) {
 });
 
 router.post('/restaurants/:id/review', function(req, res, next) {
-  console.log('here');
+  console.log('here'+req.params.id);
+  var id = req.params.id;
   var thing = {
     name: req.body.name,
     date: req.body.date,
     rating: req.body.rating,
     review: req.body.review,
-    restaurant_id: req.param.id
+    restaurant_id: req.params.id
   }
-  knex('reviews').where('id', req.params.id).insert(thing)
+  console.log(thing);
+  knex('reviews').select().where('id', req.params.id).insert(thing)
     .then(function(result){
-      res.redirect('/restaurants/'+req.params.id+"/review");
+      res.redirect('/restaurants/'+req.params.id);
   });
 });
 
@@ -119,7 +125,7 @@ router.get('/restaurants/:id/review', function(req, res, next) {
     var resList = Dine().select().fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
       .then(function(package){
         var stuff = package
-        var revArr = sort.reviewArr(idy, resList)
+        // var revArr = sort.reviewArr(idy, resList)
         res.render('restaurants/show/review', {restaurant: stuff });
       });
   });

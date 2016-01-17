@@ -34,6 +34,13 @@ module.exports = {
     return idArr
   },
 
+  revSorter : function (totalRevArr, id) {
+    console.log(id);
+    console.log('***********************');
+    console.log(totalRevArr);
+
+    },
+
 
   reviewArr : function (restId, totalRevArr) {
     console.log(restId);

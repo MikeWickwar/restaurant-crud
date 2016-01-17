@@ -45,11 +45,11 @@ block content
                   option(value= 'Vietnamese') Vietnamese
         div.form-group
           label(for="rating") Rating
-            input(type="radio" name="rating" value="1" checked=(restaurant.rating === 1 ? true : undefined))
-            input(type="radio" name="rating" value="2" checked=(restaurant.rating === 2 ? true : undefined))
-            input(type="radio" name="rating" value="3" checked=(restaurant.rating === 3 ? true : undefined))
-            input(type="radio" name="rating" value="4" checked=(restaurant.rating === 4 ? true : undefined))
-            input(type="radio" name="rating" value="5" checked=(restaurant.rating === 5 ? true : undefined))
+            input(type="radio" name="rating" value="1" checked=(restaurant.rating == 1 ? true : undefined))
+            input(type="radio" name="rating" value="2" checked=(restaurant.rating == 2 ? true : undefined))
+            input(type="radio" name="rating" value="3" checked=(restaurant.rating == 3 ? true : undefined))
+            input(type="radio" name="rating" value="4" checked=(restaurant.rating == 4 ? true : undefined))
+            input(type="radio" name="rating" value="5" checked=(restaurant.rating == 5 ? true : undefined))
         div.form-group
           label(for="image") Image
             input(type="textarea" value= restaurant.imglink id="image" name="image" placeholder="Image Url...")
