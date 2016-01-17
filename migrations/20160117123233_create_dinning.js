@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
     table.text('bio');
   }),
     knex.schema.createTable('reviews', function(table){
-    table.increments('id');
+    table.increments('rev_id');
     table.text('review');
     table.integer('rating');
     table.integer('restaurant_id')
