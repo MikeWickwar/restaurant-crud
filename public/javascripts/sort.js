@@ -18,7 +18,7 @@ module.exports = {
    var ratingArr = [];
    console.log('here sortin');
     package.forEach(function(rest){
-      console.log(rest.title +"************** " +rest.rating);
+      console.log(rest.title +"************** " +rest.id);
         restResultPack.push(rest.title, rest.rating);
     })
     console.log("/,,/");
@@ -53,8 +53,25 @@ module.exports = {
 
   eSorter : function (restaurantsArr, package){
     console.log("sortin emp");
+  },
+
+  indiRestSorter : function (restaurantsArr, id) {
+    var thisRest;
+    console.log(restaurantsArr + id +"*****&*&*&*&*&*&");
+    restaurantsArr.forEach(function (rest) {
+      console.log(rest.id+id+"TDTDTDTDTDTDTDTDTD");
+      if (rest.id == id){
+        console.log(rest.id+"PSPSPAOKASDPOKAS  ");
+          thisRest = rest
+      }
+    })
+    return thisRest
+    }
   }
-}
+
+
+
+
 // var restResultPack = []
 // module.exports = {
 //  rSorter : function (package){

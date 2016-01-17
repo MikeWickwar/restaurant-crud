@@ -68,10 +68,13 @@ router.get('/restaurants/:id', function (req, res, next) {
   });
 })
 router.get('/restaurants/:id/edit', function (req, res, next) {
+  var id = req.params.id
   // var restaurant = Dine().where('id', req.params.id).first().then(function(package){
   var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_id').then(function(package){
     var lots_of_stuff = package;
-      res.render('restaurants/edit', {restaurant: lots_of_stuff, states: stater});
+      var indiRest = sort.indiRestSorter(lots_of_stuff, id)
+        console.log(indiRest +"()()()()(()))())()))())");
+      res.render('restaurants/edit', {restaurant : indiRest , states : stater});
       // console.log(lots_of_stuff.location.split(' ')[1]);
   });
 })
