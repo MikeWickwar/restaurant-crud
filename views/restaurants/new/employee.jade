@@ -8,17 +8,18 @@ block content
   div.container2
     form(action='/restaurants/#{idNum}/employee' method='post')
       div.form-group
-        label(for="fName") First Name
-        input.form-control(type="text" id="fname" name='fname' placeholder="First Name")
+        label(for="firstName") First Name
+        input.form-control(type="text" id="firstName" name='firstName' placeholder="First Name")
       div.form-group
-        label(for="lName") Last Name
-        input.form-control(type="text" id="lname" name='lname' placeholder="Last Name")
+        label(for="lastName") Last Name
+        input.form-control(type="text" id="lastName" name='lastName' placeholder="Last Name")
       div.form-group
-        label(for="select") position
-          input(type="select" name="select" value="Manager" selected)
-          input(type="select" name="select" value="Chef")
-          input(type="select" name="select" value="Waiter")
-          input(type="select" name="select" value="Host")
+        label(for="position") position
+          select
+            option(type="select" name="select" value="Manager" selected) Manager
+            option(type="select" name="select" value="Chef") Chef
+            option(type="select" name="select" value="Waiter") Waiter
+            option(type="select" name="select" value="Host")  Host
       div.btns
         button.btn.sub(type="submit") Submit
         button.btn.can(type="submit") Cancel

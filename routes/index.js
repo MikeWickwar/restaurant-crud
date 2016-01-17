@@ -138,6 +138,22 @@ router.get('/restaurants/:id/employee/new', function(req, res, next) {
   res.render('restaurants/new/employee', {idNum: req.params.id});
 });
 
+router.post('/restaurants/:id/employee', function(req, res, next) {
+  console.log('here'+req.params.id);
+  var id = req.params.id;
+  var thing = {
+    firstName : req.body.firstName,
+    lastName : req.body.lastName,
+    rest_id : id
+  }
+  console.log(thing);
+  knex('employees').select().where('id', req.params.id).insert(thing)
+    .then(function(result){
+      res.redirect('/restaurants/'+req.params.id);
+  });
+});
+
+
 router.post('/restaurants/:id/delete', function (req, res) {
   Dine().where('id', req.params.id).del()
   .then(function (result) {

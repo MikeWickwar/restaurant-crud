@@ -18,6 +18,12 @@ exports.up = function(knex, Promise) {
     table.date('date')
     table.string('name');
   }),
+    knex.schema.createTable('employees', function(table){
+    table.increments('id');
+    table.string('firstName');
+    table.string('lastName');
+    table.integer('rest_id');
+  }),
 
 ])
 };
