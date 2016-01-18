@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var stater = require('../public/javascripts/states.js')
 var sort = require('../public/javascripts/sort.js')
+var valid = require('../public/javascripts/validations.js')
 var i =0;
 
 var knex = require('knex')({
@@ -73,7 +74,7 @@ router.get('/restaurants/:id', function (req, res, next) {
         var indiRest = sort.indiRestSorter(singleRpackage, id);
         var reviews = sort.revSorter(singleRpackage, id);
         console.log(empAction+"polplolpoplolplololpopl");
-        res.render('restaurants/show', {restaurant: indiRest, reviewer : reviews, restaurantS: restaurantS, employees: empAction});
+          res.render('restaurants/show', {restaurant: indiRest, reviewer : reviews, restaurantS: restaurantS, employees: empAction});
       })
     });
   })
@@ -92,6 +93,7 @@ router.get('/restaurants/:id/edit', function (req, res, next) {
 
 router.post('/restaurants/:id', function(req, res, next) {
   console.log('here');
+  titlecheck = req.body.name;
   var thing = {
     title: req.body.name,
     imglink: req.body.image,
@@ -101,10 +103,16 @@ router.post('/restaurants/:id', function(req, res, next) {
     bio: req.body.bio
   }
   console.log(thing.bio);
+  valid.filledIn(titlecheck);
+    if (titlecheck){
+    res.render('restaurants/new/employee', {errors: titlecheck})
+    } else {
+
   Dine().where('id', req.params.id).update(thing)
     .then(function(result){
       res.redirect('/');
   });
+}
 });
 
 router.post('/restaurants/:id/review', function(req, res, next) {

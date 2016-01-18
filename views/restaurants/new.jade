@@ -9,6 +9,8 @@ block content
     form(action='/restaurants' method='post')
       div.form-group
         label(for="Name") Name
+        if errors
+          p.error Please Enter Your Name
         input.form-control(type="text" id="name" name='name' placeholder="Name")
       div.form-group
         label(for="title") Location
