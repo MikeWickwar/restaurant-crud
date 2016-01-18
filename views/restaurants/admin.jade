@@ -3,19 +3,21 @@ extends ../layout
 block content 
   div.header
     div.adlink: a.ad(href= '/restaurants/admin') #{title}
-  div.body
+  div.adbody
     for rest, index in restaurants
       div.indRest
         if isNaN(rest)
-          h1= rest
+          h1.rtitl= rest
         else
-          - var numstar = rest;
-          - while (numstar--)
-            i.star.fa.fa-star
-    div.buttons
+          div.stars
+            - var numstar = rest;
+            - while (numstar--)
+              i.star.fa.fa-star
+    div.btns
       for i in id
-        a.btnEs(href='/restaurants/#{i}/edit') Edit
-        form(action='/restaurants/#{i}/delete' method='post')
-          input.btn-link.d(type='submit' value='Delete')
-                  
-          
+        div.indiBtns
+          a.btnEs(href='/restaurants/#{i}/edit') Edit
+          form(action='/restaurants/#{i}/delete' method='post')
+            input.btn-link.d(type='submit' value='Delete')
+                
+      

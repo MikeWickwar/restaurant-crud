@@ -41,7 +41,7 @@ router.get('/restaurants/admin', function(req, res, next) {
   var lots_of_stuff = package;
   var restaurantsArr = sort.rSorter(package);
   var idArr = sort.idSort(package);
-  console.log(restaurantsArr);
+  console.log(restaurantsArr+"________-----______");
     res.render('restaurants/admin', {title: "Admin Page", restaurants: restaurantsArr, id: idArr});
     });
 });
@@ -82,8 +82,9 @@ router.get('/restaurants/:id', function (req, res, next) {
 router.get('/restaurants/:id/edit', function (req, res, next) {
   var id = req.params.id
   // var restaurant = Dine().where('id', req.params.id).first().then(function(package){
-  var restaurant = Dine().select().innerJoin('reviews', 'dinning.id', 'restaurant_id').then(function(package){
+  var restaurant = Dine().select().fullOuterJoin('reviews', 'dinning.id', 'restaurant_id').then(function(package){
     var lots_of_stuff = package;
+    console.log(lots_of_stuff+"HDHDHDHDHDH");
       var indiRest = sort.indiRestSorter(lots_of_stuff, id)
         console.log(indiRest +"()()()()(()))())()))())");
       res.render('restaurants/edit', {restaurant : indiRest , states : stater});
@@ -102,17 +103,10 @@ router.post('/restaurants/:id', function(req, res, next) {
     location: req.body.location+ ", " + req.body.staters,
     bio: req.body.bio
   }
-  console.log(thing.bio);
-  valid.filledIn(titlecheck);
-    if (titlecheck){
-    res.render('restaurants/new/employee', {errors: titlecheck})
-    } else {
-
   Dine().where('id', req.params.id).update(thing)
     .then(function(result){
       res.redirect('/');
   });
-}
 });
 
 router.post('/restaurants/:id/review', function(req, res, next) {

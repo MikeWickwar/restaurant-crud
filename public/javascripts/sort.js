@@ -76,7 +76,7 @@ module.exports = {
     console.log(restaurantsArr + id +"*****&*&*&*&*&*&");
     restaurantsArr.forEach(function (rest) {
       console.log(rest.id+id+"TDTDTDTDTDTDTDTDTD");
-      if (rest.id == id){
+      if (rest.id ==  id){
         console.log(rest.id+"PSPSPAOKASDPOKAS  ");
           thisRest = rest
       }
