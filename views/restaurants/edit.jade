@@ -4,8 +4,8 @@ block content
 
   div.header
     h1.titl.edit Editing #{restaurant.title}
-  div.ftitl Edit Restaurant
-    div.container2
+  div.fetitl Edit Restaurant
+    div.container23
       form(action='/restaurants/#{restaurant.id}' method='post')
         div.form-group
           label(for="Name") Name
@@ -56,7 +56,7 @@ block content
         div.form-group
           lable(for="bio")
             textarea(rows= "4" cols= "30" name="bio" placeholder= restaurant.bio)
-        div.btns
-          button.btn.sub(type="submit") Submit
-          button.btn.can(type="submit") Cancel
+        div.btns2
+          button.sub(type="submit") Submit
+          button.can2(type="submit") Cancel
           

@@ -59,10 +59,6 @@ router.post('/restaurants', function(req, res, next) {
   });
 });
 
-//for this i need to
-//   -write a function that will put any employees into aan array given an id
-//   - pass the array into the view  through the locals object
-//    -dislpay that bitch on show
 router.get('/restaurants/:id', function (req, res, next) {
   var id = req.params.id
   var empAction = knex('employees').select().where('employees.rest_id', '=', id).then(function (empAction) {
@@ -154,7 +150,8 @@ router.post('/restaurants/:id/employee', function(req, res, next) {
   var thing = {
     firstName : req.body.firstName,
     lastName : req.body.lastName,
-    rest_id : id
+    rest_id : id,
+    position : req.body.position
   }
   console.log(thing);
   knex('employees').select().where('id', req.params.id).insert(thing)

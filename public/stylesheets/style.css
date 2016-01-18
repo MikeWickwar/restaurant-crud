@@ -23,7 +23,7 @@ h1{
   display: flex;
   flex-direction: row;
   justify-content:center;
-  width: 60%;
+  width: 70%;
 }
 .btnEs{
   background-color: green;
@@ -53,6 +53,18 @@ h1{
   float: right;
   margin-top: -53vh;
 }
+.btns2{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+.btns23{
+  float: right;
+  padding: 2;
+  margin-top: 30vh;
+  display: flex;
+  justify-content: center;
+}
 .indiBtns{
   display: flex;
   flex-direction: row;
@@ -67,7 +79,6 @@ h1{
 }
 .d{
   background-color: red;
-  margin-left: 50%;
 }
 .btncont{
   /*background-color: yellow;*/
@@ -99,6 +110,11 @@ h1{
   width: 70vw;
   margin-left: 10vw;
   margin-top: 5vw;
+}
+.container23{
+  border: 1px solid black;
+  position: absolute;
+
 }
 .form-group{
   margin: 2vh;
@@ -158,12 +174,30 @@ p{
   font-size: 10vh;
   padding-left: 18vw;
 }
+.can{
+  width: 5vw;
+  float: right;
+}
+.can2{
+  width: 5vw;
+  float: right;
+  background-color: red;
+  margin-left: 50vw;
+  margin-top: -3vh;
+}
 .ftitl{
   background-color: white;
   position: absolute;
   z-index: 3;
   margin-left: 11vw;
   margin-top: 9vh;
+}
+.fetitl{
+  background-color: white;
+  position: absolute;
+  z-index: 3;
+  margin-left: 11vw;
+  margin-top: 11vh;
 }
 .form-group{
   padding: .8%;
@@ -181,6 +215,11 @@ p{
   background-color: green;
   margin-left: 55vw;
 }
+.sub2{
+  background-color: green;
+  margin-left: 55vw;
+  width: 6vw;
+}
 .btnE{
   background-color: green;
   padding: 13%;
@@ -194,6 +233,8 @@ p{
   padding-left: 5%;
   padding-right:5%;
   font-size: 2vh;
+  text-decoration: none;
+  color: white;
 }
 .btnEmp{
   background-color: blue;
@@ -201,6 +242,7 @@ p{
   padding-left: 5%;
   padding-right:5%;
   font-size: 2vh;
+  float: left;
 }
 .subBox{
   width: 15vw;
@@ -209,4 +251,25 @@ p{
 .btns{
   display: flex;
   justify-content:center;
+}
+.btnsS{
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  margin-top: -35vh;
+  float: right;
+}
+.st{
+  margin-left: 17vw;
+  font-family: 'Quicksand', sans-serif;
+  font-weight:lighter;
+  font-size: 5vh;
+  margin-top: 0;
+  margin-bottom: 3vh;
+}
+.emp{
+  border: 2px solid black;
+}
+.rev{
+  border: 2px solid black;
 }

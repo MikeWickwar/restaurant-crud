@@ -9,11 +9,10 @@ block content
         if isNaN(rest)
           h1.rtitl= rest
         else
-          div.stars
-            - var numstar = rest;
-            - while (numstar--)
-              i.star.fa.fa-star
-    div.btns
+          - var numstar = rest;
+          - while (numstar--)
+            i.star.fa.fa-star
+    div.btnsS
       for i in id
         div.indiBtns
           a.btnEs(href='/restaurants/#{i}/edit') Edit

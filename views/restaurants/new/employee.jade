@@ -15,11 +15,11 @@ block content
         input.form-control(type="text" id="lastName" name='lastName' placeholder="Last Name")
       div.form-group
         label(for="position") position
-          select
-            option(type="select" name="select" value="Manager" selected) Manager
-            option(type="select" name="select" value="Chef") Chef
-            option(type="select" name="select" value="Waiter") Waiter
-            option(type="select" name="select" value="Host")  Host
+          select(name='position' id='position')
+            option(type="select" name="manager" value="Manager" selected) Manager
+            option(type="select" name="chef" value="Chef") Chef
+            option(type="select" name="waitert" value="Waiter") Waiter
+            option(type="select" name="host" value="Host")  Host
       div.btns
         button.btn.sub(type="submit") Submit
         button.btn.can(type="submit") Cancel

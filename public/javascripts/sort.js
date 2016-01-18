@@ -48,7 +48,7 @@ module.exports = {
     console.log(totalRevArr[0]);
       for(dinner in totalRevArr){
         if (restId === dinner.id) {
-          indRestRevArray.push('bawls')
+          indRestRevArray.push('herehere')
         }
       }
       console.log(indRestRevArray);

@@ -2,7 +2,7 @@ extends ../layout
 
 block content 
   div.header
-    h1.gt: a.titl.show(href= '/restaurants/#{restaurant.id}') #{restaurant.title}
+    h1.st: a.titl.st.show(href= '/restaurants/#{restaurant.id}') #{restaurant.title}
     div.adlink: a.ad(href= '/restaurants/admin') Admin Page
   div.splt
     div.bigpic
@@ -12,7 +12,7 @@ block content
       p= restaurant.description
       div.locrate Located in&nbsp #{restaurant.location}
       div.bio
-        p= restaurant.bio
+        p #{restaurant.bio}
         p
           - var numstar = restaurant.rating;
           - while (numstar--)
@@ -21,12 +21,15 @@ block content
       div.reviews
         for restaurant in restaurantS
             p.rev #{restaurant.review}
+              - var numstar = restaurant.rating;
+              - while (numstar--)
+               i.star.fa.fa-star
         if employees
           for employee in employees
-            p.emp #{employee.firstName}
-          div.btncont
-            p.btns 
-              a.btnE(href='/restaurants/#{restaurant.id}/edit') Edit
-              form(action='/restaurants/#{restaurant.id}/delete' method='post')
-                input.btn-link.d(type='submit' value='Delete')
-              a.btnR(href='/restaurants/#{restaurant.id}/review/new') Review
+            ul.emp #{employee.firstName} #{employee.lastName} 
+              li #{employee.position}
+          div.btns23
+            a.btnEs(href='/restaurants/#{restaurant.id}/edit') Edit
+            a.btnR(href='/restaurants/#{restaurant.id}/review/new') Review
+            form(action='/restaurants/#{restaurant.id}/delete' method='post')
+              input.btn-link.d(type='submit' value='Delete')
