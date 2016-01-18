@@ -21,16 +21,16 @@ block content
       div.reviews
         for restaurant in restaurantS
           if restaurant.review
-              p.rev #{restaurant.review}
-                - var numstar = restaurant.rating;
-                - while (numstar--)
-                 i.star.fa.fa-star
-          if employees
-            for employee in employees
-              ul.emp #{employee.firstName} #{employee.lastName} 
-                li #{employee.position}
-            div.btns23
-              a.btnEs(href='/restaurants/#{restaurant.id}/edit') Edit
-              a.btnR(href='/restaurants/#{restaurant.id}/review/new') Review
-              form(action='/restaurants/#{restaurant.id}/delete' method='post')
-                input.btn-link.d(type='submit' value='Delete')
+            p.rev #{restaurant.review}
+              - var numstar = restaurant.rating;
+              - while (numstar--)
+               i.star.fa.fa-star
+        if employees
+          for employee in employees
+            ul.emp #{employee.firstName} #{employee.lastName} 
+              li #{employee.position}
+          div.btns23
+            a.btnEs(href='/restaurants/#{restaurant.id}/edit') Edit
+            a.btnR(href='/restaurants/#{restaurant.id}/review/new') Review
+            form(action='/restaurants/#{restaurant.id}/delete' method='post')
+              input.btn-link.d(type='submit' value='Delete')
