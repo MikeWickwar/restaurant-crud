@@ -58,8 +58,17 @@ module.exports = {
         //   indRestRevArray.push('bawls')
         // }
 
-  eSorter : function (restaurantsArr, package){
-    console.log("sortin emp");
+  empSorter : function (totalEmpArr, restId){
+    var empArr = [];
+    console.log("sortin emp"+totalEmpArr+"bbbbbbbb"+restId);
+    totalEmpArr.forEach(function (employee) {
+      console.log(employee);
+      if(restId === employee.rest_id ){
+        empArr.pusj('employee')
+      }
+    })
+    console.log(empArr+"^@^^@^^@^@^@^@^@^^@^@^^@^@@^");
+    return empArr
   },
 
   indiRestSorter : function (restaurantsArr, id) {

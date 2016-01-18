@@ -21,9 +21,12 @@ block content
       div.reviews
         for restaurant in restaurantS
             p.rev #{restaurant.review}
-        div.btncont
-          p.btns 
-            a.btnE(href='/restaurants/#{restaurant.id}/edit') Edit
-            form(action='/restaurants/#{restaurant.id}/delete' method='post')
-              input.btn-link.d(type='submit' value='Delete')
-            a.btnR(href='/restaurants/#{restaurant.id}/review/new') Review
+        if employees
+          for employee in employees
+            p.emp #{employee.firstName}
+          div.btncont
+            p.btns 
+              a.btnE(href='/restaurants/#{restaurant.id}/edit') Edit
+              form(action='/restaurants/#{restaurant.id}/delete' method='post')
+                input.btn-link.d(type='submit' value='Delete')
+              a.btnR(href='/restaurants/#{restaurant.id}/review/new') Review

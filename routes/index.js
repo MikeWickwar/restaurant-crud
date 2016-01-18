@@ -58,17 +58,25 @@ router.post('/restaurants', function(req, res, next) {
   });
 });
 
+//for this i need to
+//   -write a function that will put any employees into aan array given an id
+//   - pass the array into the view  through the locals object
+//    -dislpay that bitch on show
 router.get('/restaurants/:id', function (req, res, next) {
   var id = req.params.id
-  var restaurant = Dine().select().where('dinning.id', '=', req.params.id).fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
-    .then(function(singleRpackage){
-      var restaurantS = singleRpackage
-      var indiRest = sort.indiRestSorter(singleRpackage, id);
-      var reviews = sort.revSorter(singleRpackage, id);
-      console.log(singleRpackage+"popopopopoopop");
-      res.render('restaurants/show', {restaurant: indiRest, reviewer : reviews, restaurantS: restaurantS});
-  });
-})
+  var empAction = knex('employees').select().where('employees.rest_id', '=', id).then(function (empAction) {
+    Dine().select().where('dinning.id', '=', req.params.id).fullOuterJoin('reviews', 'dinning.id', 'restaurant_id')
+      .then(function(singleRpackage){
+        console.log("++++++++++++++++++"+empAction);
+        var restaurantS = singleRpackage
+        console.log(empAction+"gfgfgfgfgfgfgfgf");
+        var indiRest = sort.indiRestSorter(singleRpackage, id);
+        var reviews = sort.revSorter(singleRpackage, id);
+        console.log(empAction+"polplolpoplolplololpopl");
+        res.render('restaurants/show', {restaurant: indiRest, reviewer : reviews, restaurantS: restaurantS, employees: empAction});
+      })
+    });
+  })
 
 router.get('/restaurants/:id/edit', function (req, res, next) {
   var id = req.params.id
