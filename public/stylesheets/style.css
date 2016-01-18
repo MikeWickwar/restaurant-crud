@@ -206,6 +206,12 @@ p{
 .can{
   background-color: red;
 }
+.canR{
+  background-color: red;
+  width: 7%;
+  margin-left: 50vw;
+  margin-top: -3vh;
+}
 .btn{
   margin: 1%;
   margin-left: .5%;
@@ -215,6 +221,11 @@ p{
 .sub{
   background-color: green;
   margin-left: 55vw;
+}
+.subR{
+  background-color: green;
+  margin-left: 55vw;
+  margin-top: 50vh;
 }
 .sub2{
   background-color: green;
