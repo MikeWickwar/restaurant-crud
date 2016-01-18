@@ -63,7 +63,8 @@ h1{
   padding: 2;
   margin-top: 30vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 30vw;
 }
 .indiBtns{
   display: flex;
@@ -243,6 +244,8 @@ p{
   padding-right:5%;
   font-size: 2vh;
   float: left;
+  margin-top: 10vh;
+  margin-left: 10vh;
 }
 .subBox{
   width: 15vw;
