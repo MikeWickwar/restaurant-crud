@@ -14,6 +14,7 @@ h1{
   margin: 0;
   text-decoration: none;
   font-family: 'Quicksand', sans-serif;
+  font-size: 90%;
 }
 .ao{
   display: flex;
@@ -114,8 +115,19 @@ h1{
 }
 .container23{
   border: 1px solid black;
+  float: left;
+  z-index: 1;
+  position: relative;
+  margin-top: 2vw;
+  margin-left: 20vw;
+}
+.ftitl{
   position: absolute;
-
+  background-color: white;
+  display: flex;
+  z-index: 4;
+  margin-top: 3vh;
+  margin-left: 22vw;
 }
 .form-group{
   margin: 2vh;
@@ -145,7 +157,7 @@ p{
   text-decoration: none;
   color: black;
   font-weight: lighter;
-  font-size: 90%;
+  font-size:90%;
 }
 .show{
   font-size: 10vh;
@@ -186,12 +198,12 @@ p{
   margin-left: 50vw;
   margin-top: -3vh;
 }
-.ftitl{
+.ftitl2{
   background-color: white;
-  position: absolute;
+  position: relative;
   z-index: 3;
   margin-left: 11vw;
-  margin-top: 9vh;
+  margin-top:11vh;
 }
 .fetitl{
   background-color: white;
@@ -286,4 +298,10 @@ p{
 }
 .rev{
   border: 2px solid black;
+}
+.titlE{
+  font-size: 90%;
+  text-decoration: none;
+  color: black;
+  font-weight: lighter;
 }

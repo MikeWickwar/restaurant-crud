@@ -22,6 +22,7 @@ exports.up = function(knex, Promise) {
     table.increments('id');
     table.string('firstName');
     table.string('lastName');
+    table.string('position');
     table.integer('rest_id');
   }),
 
